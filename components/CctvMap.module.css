@@ -1,0 +1,151 @@
+.filters {
+  display: flex;
+  gap: var(--spacing-8);
+  margin-top: var(--spacing-32);
+  flex-wrap: wrap;
+}
+.filter {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--color-fog);
+  border: 1px solid var(--color-pewter);
+  border-radius: var(--radius-full);
+  padding: 8px 16px;
+  font-size: 15px;
+  font-weight: var(--fw-medium);
+  transition: all 0.15s ease;
+}
+.filter:hover {
+  border-color: var(--color-silver);
+  color: var(--color-white);
+}
+.filterActive {
+  background: var(--color-signal-blue);
+  border-color: var(--color-signal-blue);
+  color: var(--color-white);
+}
+.filterCount {
+  font-size: var(--text-body-sm);
+  opacity: 0.8;
+  font-variant-numeric: tabular-nums;
+}
+
+.layout {
+  margin-top: var(--spacing-24);
+  display: grid;
+  grid-template-columns: minmax(0, 1.9fr) minmax(300px, 1fr);
+  gap: var(--spacing-24);
+}
+
+/* ---------- 지도 열 ---------- */
+.mapCol {
+  position: relative;
+}
+.legend {
+  display: flex;
+  gap: var(--spacing-20);
+  margin-top: var(--spacing-16);
+  padding: 0 var(--spacing-4);
+}
+.legendItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: var(--text-body-sm);
+  color: var(--color-fog);
+}
+
+/* ---------- 목록 열 ---------- */
+.listCol {
+  background: var(--surface-1);
+  border: 1px solid var(--color-gunmetal);
+  border-radius: var(--radius-cards);
+  padding: var(--spacing-20) var(--spacing-16) var(--spacing-12);
+  display: flex;
+  flex-direction: column;
+}
+.listHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 0 var(--spacing-8) var(--spacing-16);
+  border-bottom: 1px solid var(--color-gunmetal);
+}
+.listTitle {
+  font-size: var(--text-subheading);
+  font-weight: var(--fw-bold);
+  color: var(--color-white);
+}
+.listCount {
+  font-size: var(--text-body-sm);
+  color: var(--color-ash);
+  font-variant-numeric: tabular-nums;
+}
+.list {
+  list-style: none;
+  margin: var(--spacing-8) 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-height: 520px;
+  overflow-y: auto;
+}
+.row {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 11px 10px;
+  border-radius: var(--radius-inputs);
+  transition: background 0.12s ease;
+}
+.row:hover {
+  background: var(--surface-2);
+}
+.row:hover .rowArrow {
+  opacity: 1;
+  transform: translateX(0);
+  color: var(--color-signal-blue);
+}
+.rowMain {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  flex: 1;
+}
+.rowId {
+  font-size: var(--text-body-sm);
+  color: var(--color-white);
+  font-weight: var(--fw-medium);
+}
+.rowLoc {
+  font-size: var(--text-body-sm);
+  color: var(--color-ash);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.rowDong {
+  font-size: var(--text-body-sm);
+  color: var(--color-slate);
+  white-space: nowrap;
+}
+.rowArrow {
+  color: var(--color-slate);
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: all 0.15s ease;
+  font-size: var(--text-body);
+}
+
+@media (max-width: 920px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+  .list {
+    max-height: 340px;
+  }
+}

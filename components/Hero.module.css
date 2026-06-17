@@ -1,0 +1,107 @@
+.hero {
+  padding-top: var(--spacing-64);
+  padding-bottom: var(--spacing-8);
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-16);
+}
+.date {
+  font-size: var(--text-body-sm);
+  color: var(--color-slate);
+  font-variant-numeric: tabular-nums;
+}
+
+.title {
+  margin-top: var(--spacing-24);
+  font-size: var(--text-heading-lg);
+  line-height: var(--leading-heading-lg);
+  letter-spacing: var(--tracking-heading-lg);
+  font-weight: var(--fw-bold);
+  color: var(--color-white);
+}
+
+.subtitle {
+  margin-top: var(--spacing-20);
+  max-width: 600px;
+  font-size: var(--text-subheading);
+  line-height: var(--leading-subheading);
+  color: var(--color-ash);
+}
+
+.cta {
+  margin-top: var(--spacing-32);
+  display: flex;
+  gap: var(--spacing-12);
+  flex-wrap: wrap;
+}
+
+.statStrip {
+  margin-top: var(--spacing-48);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-16);
+  background-color: var(--surface-1);
+  border: 1px solid var(--color-gunmetal);
+  border-radius: var(--radius-cards);
+  padding: var(--spacing-28) var(--spacing-32);
+}
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+  position: relative;
+}
+.stat:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: calc(var(--spacing-16) * -1);
+  top: 4px;
+  bottom: 4px;
+  width: 1px;
+  background-color: var(--color-gunmetal);
+}
+.statLabel {
+  font-size: var(--text-body-sm);
+  color: var(--color-slate);
+}
+.statValue {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+.statValue strong {
+  font-size: var(--text-heading);
+  line-height: 1;
+  font-weight: var(--fw-bold);
+  color: var(--color-white);
+  letter-spacing: -0.5px;
+}
+.statUnit {
+  font-style: normal;
+  font-size: var(--text-body-sm);
+  color: var(--color-ash);
+}
+
+@media (max-width: 860px) {
+  .title {
+    font-size: var(--text-heading);
+  }
+  .statStrip {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-24);
+  }
+  .stat:nth-child(2)::after {
+    display: none;
+  }
+}
+@media (max-width: 480px) {
+  .statStrip {
+    grid-template-columns: 1fr;
+  }
+  .stat::after {
+    display: none !important;
+  }
+}

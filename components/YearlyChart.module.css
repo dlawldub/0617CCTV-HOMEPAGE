@@ -1,0 +1,125 @@
+.card {
+  margin-top: var(--spacing-32);
+}
+
+.head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--spacing-24);
+  flex-wrap: wrap;
+  margin-bottom: var(--spacing-8);
+}
+.legend {
+  display: flex;
+  gap: var(--spacing-20);
+}
+.legendItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--text-body-sm);
+  color: var(--color-ash);
+}
+.swatchBar {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  background: var(--color-signal-blue);
+}
+.swatchLine {
+  width: 16px;
+  height: 0;
+  border-top: 2.5px solid var(--color-map-green);
+}
+
+.readout {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+.readoutYear {
+  font-size: var(--text-body-sm);
+  color: var(--color-slate);
+}
+.readoutVal {
+  font-size: var(--text-heading-sm);
+  font-weight: var(--fw-bold);
+  color: var(--color-white);
+}
+.readoutVal em {
+  font-style: normal;
+  font-size: var(--text-body-sm);
+  font-weight: var(--fw-regular);
+  color: var(--color-ash);
+  margin-left: 4px;
+}
+.readoutCum {
+  font-size: var(--text-body-sm);
+  color: var(--color-map-green);
+}
+
+.chart {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: var(--spacing-16);
+}
+.axisLabel {
+  fill: var(--color-slate);
+  font-size: 12px;
+  font-family: var(--font-cera-pro);
+  font-variant-numeric: tabular-nums;
+}
+.xLabel {
+  fill: var(--color-ash);
+  font-size: 13px;
+  font-family: var(--font-cera-pro);
+  font-variant-numeric: tabular-nums;
+}
+.barGroup {
+  cursor: pointer;
+}
+.bar {
+  transition: fill 0.15s ease;
+}
+.barValue {
+  fill: var(--color-white);
+  font-size: 14px;
+  font-weight: 700;
+  font-family: var(--font-cera-pro);
+  font-variant-numeric: tabular-nums;
+}
+
+.foot {
+  margin-top: var(--spacing-24);
+  padding-top: var(--spacing-24);
+  border-top: 1px solid var(--color-gunmetal);
+  display: flex;
+  gap: var(--spacing-48);
+  flex-wrap: wrap;
+}
+.footStat {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.footLabel {
+  font-size: var(--text-body-sm);
+  color: var(--color-slate);
+}
+.footVal {
+  font-size: var(--text-subheading);
+  font-weight: var(--fw-bold);
+  color: var(--color-white);
+}
+
+@media (max-width: 620px) {
+  .readout {
+    align-items: flex-start;
+  }
+  .foot {
+    gap: var(--spacing-24);
+  }
+}

@@ -1,0 +1,351 @@
+/* =========================================================
+   방범CCTV 유지보수 플랫폼 — Mapbox "Satellite console at
+   midnight" 디자인 시스템 (DESIGN.md 기반)
+   ========================================================= */
+
+:root {
+  /* Colors */
+  --color-void-black: #0e1012;
+  --color-deep-charcoal: #15171b;
+  --color-gunmetal: #1c1f24;
+  --color-graphite: #23262d;
+  --color-steel: #333943;
+  --color-pewter: #444d5a;
+  --color-slate: #566171;
+  --color-ash: #8b96aa;
+  --color-fog: #a0aaba;
+  --color-silver: #bbc2ce;
+  --color-cloud: #d5dae2;
+  --color-white: #ffffff;
+  --color-signal-blue: #007afc;
+  --color-deep-signal: #0062ca;
+  --color-map-green: #228a56;
+  --color-alert-red: #e0584b; /* 장애 표기 전용 — 단일 채도 원칙을 깨지 않도록 상태 신호로만 한정 사용 */
+  --color-warn-amber: #d8a23a;
+
+  /* Font — Cera Pro 미보유 시 DESIGN.md 권장 대체(Plus Jakarta Sans) + 한글 Pretendard */
+  --font-cera-pro: 'Cera Pro', 'Plus Jakarta Sans', 'Pretendard',
+    ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    'Apple SD Gothic Neo', 'Malgun Gothic', Roboto, sans-serif;
+
+  /* Type scale */
+  --text-caption: 10px;
+  --leading-caption: 1.6;
+  --tracking-caption: 1px;
+  --text-body-sm: 14px;
+  --leading-body-sm: 1.43;
+  --text-body: 16px;
+  --leading-body: 1.5;
+  --text-subheading: 18px;
+  --leading-subheading: 1.4;
+  --text-heading-sm: 24px;
+  --leading-heading-sm: 1.33;
+  --text-heading: 32px;
+  --leading-heading: 1.25;
+  --text-heading-lg: 44px;
+  --leading-heading-lg: 1.14;
+  --tracking-heading-lg: -0.88px;
+  --text-display: 68px;
+  --leading-display: 1;
+  --tracking-display: -1.36px;
+
+  /* Weights */
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-bold: 700;
+
+  /* Spacing */
+  --spacing-4: 4px;
+  --spacing-8: 8px;
+  --spacing-12: 12px;
+  --spacing-16: 16px;
+  --spacing-20: 20px;
+  --spacing-24: 24px;
+  --spacing-28: 28px;
+  --spacing-32: 32px;
+  --spacing-40: 40px;
+  --spacing-48: 48px;
+  --spacing-60: 60px;
+  --spacing-64: 64px;
+  --spacing-96: 96px;
+  --spacing-140: 140px;
+  --spacing-160: 160px;
+
+  /* Layout */
+  --page-max-width: 1344px;
+  --section-gap: 96px;
+  --card-padding: 24px;
+  --element-gap: 12px;
+
+  /* Radius */
+  --radius-md: 4px;
+  --radius-inputs: 6px;
+  --radius-chips: 12px;
+  --radius-2xl: 16px;
+  --radius-cards: 24px;
+  --radius-full: 100px;
+
+  /* Shadows */
+  --shadow-xl: rgb(14, 16, 18) 0px -175px 175px -75px inset;
+  --shadow-xl-2: rgb(14, 16, 18) 0px 0px 100px 50px;
+
+  /* Surfaces */
+  --surface-0: #0e1012;
+  --surface-1: #15171b;
+  --surface-2: #1c1f24;
+  --surface-3: #23262d;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color-void-black);
+  color: var(--color-fog);
+  font-family: var(--font-cera-pro);
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+  font-weight: var(--fw-regular);
+  font-feature-settings: 'lnum';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--color-white);
+  margin: 0;
+  letter-spacing: var(--tracking-heading-lg);
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* ---------- 레이아웃 ---------- */
+.page-shell {
+  max-width: var(--page-max-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-24);
+}
+
+.section {
+  margin-top: var(--section-gap);
+}
+
+.section-label {
+  text-transform: uppercase;
+  font-size: var(--text-body-sm);
+  letter-spacing: 0.84px;
+  font-weight: var(--fw-medium);
+  color: var(--color-signal-blue);
+}
+
+.section-title {
+  font-size: var(--text-heading);
+  line-height: var(--leading-heading);
+  font-weight: var(--fw-bold);
+  letter-spacing: -0.32px;
+  margin-top: var(--spacing-12);
+}
+
+.section-desc {
+  color: var(--color-ash);
+  font-size: var(--text-body);
+  margin-top: var(--spacing-12);
+  max-width: 620px;
+}
+
+/* ---------- 카드 ---------- */
+.card {
+  background-color: var(--surface-1);
+  border: 1px solid var(--color-gunmetal);
+  border-radius: var(--radius-cards);
+  padding: var(--card-padding);
+}
+
+/* ---------- 버튼 ---------- */
+.btn-primary {
+  background-color: var(--color-signal-blue);
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--radius-full);
+  padding: 12px 24px;
+  font-size: var(--text-body);
+  font-weight: var(--fw-medium);
+  transition: filter 0.15s ease;
+}
+.btn-primary:hover {
+  filter: brightness(1.12);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--color-white);
+  border: 1px solid var(--color-silver);
+  border-radius: var(--radius-full);
+  padding: 12px 24px;
+  font-size: var(--text-body);
+  font-weight: var(--fw-medium);
+  transition: border-color 0.15s ease;
+}
+.btn-outline:hover {
+  border-color: var(--color-white);
+}
+
+.btn-icon {
+  background-color: transparent;
+  color: var(--color-white);
+  border: 1px solid var(--color-pewter);
+  border-radius: var(--radius-inputs);
+  padding: 8px 10px;
+  font-size: var(--text-body-sm);
+  font-weight: var(--fw-medium);
+}
+
+/* ---------- 배지 ---------- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: var(--radius-md);
+  padding: 5.6px 7.7px;
+  font-size: var(--text-caption);
+  font-weight: var(--fw-bold);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.badge-green {
+  background-color: var(--color-map-green);
+  color: var(--color-white);
+}
+.badge-info {
+  background-color: var(--color-deep-signal);
+  color: var(--color-white);
+}
+.badge-alert {
+  background-color: var(--color-alert-red);
+  color: var(--color-white);
+}
+.badge-muted {
+  background-color: var(--surface-2);
+  color: var(--color-ash);
+}
+
+/* status dot */
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.dot-green {
+  background-color: var(--color-map-green);
+}
+.dot-red {
+  background-color: var(--color-alert-red);
+}
+.dot-amber {
+  background-color: var(--color-warn-amber);
+}
+.dot-blue {
+  background-color: var(--color-signal-blue);
+}
+
+.mono {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'lnum', 'tnum';
+}
+
+/* scrollbar in dark contexts */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--surface-0);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-steel);
+  border-radius: 100px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-pewter);
+}
+
+@media (max-width: 900px) {
+  :root {
+    --section-gap: 64px;
+  }
+  .section-title {
+    font-size: var(--text-heading-sm);
+  }
+}
+
+/* =========================================================
+   Leaflet 다크 테마 오버라이드
+   ========================================================= */
+.leaflet-container {
+  background: var(--surface-0);
+  font-family: var(--font-cera-pro);
+}
+.leaflet-bar,
+.leaflet-bar a {
+  background: var(--surface-2);
+  color: var(--color-white);
+  border-color: var(--color-gunmetal) !important;
+}
+.leaflet-bar a:hover {
+  background: var(--surface-3);
+  color: var(--color-white);
+}
+.leaflet-control-attribution {
+  background: rgba(14, 16, 18, 0.78) !important;
+  color: var(--color-slate) !important;
+  border-top-left-radius: var(--radius-md);
+  padding: 2px 8px;
+}
+.leaflet-control-attribution a {
+  color: var(--color-ash) !important;
+}
+.leaflet-popup-content-wrapper {
+  background: var(--surface-1);
+  color: var(--color-fog);
+  border: 1px solid var(--color-gunmetal);
+  border-radius: var(--radius-chips);
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.6);
+}
+.leaflet-popup-content {
+  margin: 14px 16px;
+}
+.leaflet-popup-tip {
+  background: var(--surface-1);
+  border: 1px solid var(--color-gunmetal);
+}
+.leaflet-popup-close-button {
+  color: var(--color-slate) !important;
+}
+.leaflet-popup-close-button:hover {
+  color: var(--color-white) !important;
+}

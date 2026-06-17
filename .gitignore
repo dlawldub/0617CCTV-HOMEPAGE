@@ -1,0 +1,18 @@
+# 의존성 / 빌드 산출물 (업로드 대상 아님)
+/node_modules
+/.next
+/out
+/build
+next-env.d.ts
+*.tsbuildinfo
+npm-debug.log*
+
+# OS / 오피스 임시파일
+.DS_Store
+~$*
+
+# 환경변수 (비밀키 보호 — 실제 데이터 lib/data.ts 는 추적됨)
+.env*.local
+
+# Claude Code 로컬 설정
+.claude/settings.local.json

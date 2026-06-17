@@ -1,0 +1,112 @@
+.grid {
+  margin-top: var(--spacing-32);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-16);
+}
+.tile {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+}
+.tileLabel {
+  font-size: var(--text-body-sm);
+  color: var(--color-slate);
+}
+.tileValue {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+.tileValue strong {
+  font-size: var(--text-heading);
+  line-height: 1;
+  color: var(--color-white);
+  font-weight: var(--fw-bold);
+  letter-spacing: -0.5px;
+}
+.tileValue em {
+  font-style: normal;
+  font-size: var(--text-body-sm);
+  color: var(--color-ash);
+}
+
+.purpose {
+  margin-top: var(--spacing-16);
+}
+.purposeHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+.purposeTitle {
+  font-size: var(--text-subheading);
+  font-weight: var(--fw-medium);
+  color: var(--color-white);
+  letter-spacing: -0.2px;
+}
+.purposeTotal {
+  font-size: var(--text-body-sm);
+  color: var(--color-ash);
+}
+.purposeTotal strong {
+  color: var(--color-white);
+  font-weight: var(--fw-bold);
+}
+
+.bar {
+  margin-top: var(--spacing-20);
+  display: flex;
+  height: 16px;
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  gap: 2px;
+  background: var(--surface-2);
+}
+.barSeg {
+  height: 100%;
+  transition: filter 0.15s ease;
+}
+.barSeg:hover {
+  filter: brightness(1.2);
+}
+
+.legend {
+  list-style: none;
+  margin: var(--spacing-24) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-12) var(--spacing-32);
+}
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.legendName {
+  font-size: var(--text-body-sm);
+  color: var(--color-fog);
+}
+.legendVal {
+  margin-left: auto;
+  font-size: var(--text-body-sm);
+  color: var(--color-white);
+  font-weight: var(--fw-medium);
+}
+.legendPct {
+  font-size: var(--text-body-sm);
+  color: var(--color-slate);
+  width: 48px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 860px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .legend {
+    grid-template-columns: 1fr;
+  }
+}
