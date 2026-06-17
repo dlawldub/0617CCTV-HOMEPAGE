@@ -15,6 +15,7 @@ Mapbox "Satellite console at midnight" 다크 테마를 적용했습니다.
 | `/faults` | 일일 장애 보고 | `app/faults/page.tsx`, `components/FaultReport.tsx` |
 | `/districts` | 동별 설치 현황(20개 행정동) | `app/districts/page.tsx`, `components/DongStatus.tsx` |
 | `/yearly` | 연도별 설치 통계(그래프) | `app/yearly/page.tsx`, `components/YearlyChart.tsx` |
+| `/board` | **유지보수 게시판** (Supabase 저장) | `app/board/page.tsx`, `components/PostForm.tsx` |
 | `/cctv/[id]` | 관리번호별 CCTV 상세 | `app/cctv/[id]/page.tsx` |
 
 상단 네비게이션의 각 메뉴는 해당 **독립 페이지**로 이동하며(앵커 스크롤 방식이
@@ -32,9 +33,26 @@ Mapbox "Satellite console at midnight" 다크 테마를 적용했습니다.
 NEXT_PUBLIC_VWORLD_KEY=발급받은_VWorld_인증키   # 미설정 시 OpenStreetMap 사용
 ```
 
+## 게시판 데이터베이스 (Supabase)
+
+`/board`의 게시글은 **Supabase**(Postgres)에 저장됩니다.
+
+- 테이블: `public.posts` (id, category[공지/점검/장애/일반], title, content, author, dong, created_at)
+- **RLS 활성화**: 공개 읽기(SELECT) + 공개 작성(INSERT) 정책. 인증은 사용하지
+  않는 데모 구성이라 누구나 글을 쓸 수 있습니다(추후 Supabase Auth로 제한 가능).
+- 클라이언트: `@supabase/supabase-js` + publishable(anon) 키 (`lib/supabase.ts`)
+
+`.env.local` 설정 ([`.env.local.example`](.env.local.example) 참고):
+
+```bash
+NEXT_PUBLIC_SUPABASE_URL=https://<프로젝트ref>.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=sb_publishable_xxxxxxxx
+```
+
 ## 기술 스택
 
 - **Next.js 15** (App Router, 다중 라우트 + 동적 라우트) + **React 19** + **TypeScript**
+- 데이터베이스: **Supabase** (Postgres, RLS) — 게시판 글 저장
 - 지도: **Leaflet 1.9** + OpenStreetMap(기본) / VWorld(선택)
 - 차트: 외부 라이브러리 없이 **순수 SVG**
 - 디자인 토큰: `app/globals.css` CSS 변수

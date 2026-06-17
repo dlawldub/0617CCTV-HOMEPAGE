@@ -39,6 +39,13 @@ const items = [
     desc: "연도별 신규 설치와 누적 설치 추세 그래프",
     metric: "2018–2025",
   },
+  {
+    href: "/board",
+    label: "유지보수 게시판",
+    eyebrow: "BOARD",
+    desc: "점검·장애·공지 정보를 등록하고 공유 (DB 저장)",
+    metric: "공지·점검·장애",
+  },
 ];
 
 export default function OverviewGrid() {

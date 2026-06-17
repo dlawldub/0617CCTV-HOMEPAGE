@@ -10,6 +10,7 @@ const links = [
   { label: "장애보고", href: "/faults" },
   { label: "동별현황", href: "/districts" },
   { label: "연도별통계", href: "/yearly" },
+  { label: "게시판", href: "/board" },
 ];
 
 export default function Nav() {
