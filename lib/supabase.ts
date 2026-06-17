@@ -10,9 +10,13 @@ const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
 export const isSupabaseConfigured = Boolean(url && anonKey);
 
-export const supabase = createClient(url ?? "", anonKey ?? "", {
-  auth: { persistSession: false },
-});
+// 환경변수 미설정 시 placeholder — createClient는 유효한 URL 형식을 요구하므로
+// 빌드 타임에 throw하지 않도록 더미값을 사용. 실제 호출은 isSupabaseConfigured 체크 후 수행.
+export const supabase = createClient(
+  url ?? "https://placeholder.supabase.co",
+  anonKey ?? "placeholder",
+  { auth: { persistSession: false } }
+);
 
 /** 게시글 타입 */
 export interface Post {
